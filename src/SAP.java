@@ -4,22 +4,35 @@ import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
 public class SAP {
+    private Digraph digraph;
+    private int[][] lengths;
+    private int[][] ancestors;
 
     // constructor takes a digraph (not necessarily a DAG)
     public SAP(Digraph G){
-
+        digraph = G;
+        int V = G.V();
+        lengths = new int[V][V];
+        ancestors = new int[V][V];
     }
 
     // length of shortest ancestral path between v and w; -1 if no such path
     public int length(int v, int w){
+        if(v == w) return 0;
+        if(v > w) return length(w, v);
 
         return 0;
     }
 
     // a common ancestor of v and w that participates in a shortest ancestral path; -1 if no such path
     public int ancestor(int v, int w){
-        return 0;
+        if(v == w) return v;
+        if(v > w) return ancestor(w, v);
 
+        return 0;
+    }
+
+    private void solve(int v, int w){
 
     }
 
